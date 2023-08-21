@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter } from 'react-router-dom';
+import NavigationComponent from './kp-dhaba/NavigationComponent';
+import { RouterConfiguration } from './kp-dhaba/RouterConfiguration';
+import { AuthProvider } from './kp-dhaba/context/AuthContext';
+import { PriceProvider } from './kp-dhaba/context/priceContext';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider>
+        <PriceProvider>
+      <BrowserRouter>
+      <NavigationComponent />
+      <RouterConfiguration/>
+</BrowserRouter></PriceProvider>
+</AuthProvider>
+    </>
   );
 }
 
